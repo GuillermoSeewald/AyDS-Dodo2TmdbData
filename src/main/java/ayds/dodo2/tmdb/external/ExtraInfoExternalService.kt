@@ -1,8 +1,8 @@
 package ayds.dodo2.tmdb.external
 
-import ayds.dodo.movieinfo.home.model.entities.OmdbMovie
-import ayds.dodo.movieinfo.moredetails.model.entities.TmdbMovie
+import ayds.dodo2.tmdb.external.tmdb.TmdbMovieResponse
+
 
 interface ExtraInfoExternalService {
-    fun getMovieInfo(movie: OmdbMovie): TmdbMovie
+    fun getMovieInfo(movie: OmdbMovie): TmdbMovieResponse
 }

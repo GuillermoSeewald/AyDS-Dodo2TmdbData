@@ -1,21 +1,19 @@
 package ayds.dodo2.tmdb.external.tmdb
 
-import ayds.dodo.movieinfo.moredetails.model.entities.EmptyMovieInfo
-import ayds.dodo.movieinfo.moredetails.model.entities.TmdbMovie
 import com.google.gson.Gson
 import com.google.gson.JsonElement
 import com.google.gson.JsonObject
 
 interface TmdbResponseToTmdbMovieResolver {
 
-    fun getMovieInfoFromExternalData(body: String?, movieYear: String): TmdbMovie
+    fun getMovieInfoFromExternalData(body: String?, movieYear: String): TmdbMovieResponse
 }
 
 internal class TmdbResponseToTmdbMovieResolverImpl :
     TmdbResponseToTmdbMovieResolver {
     private val noResults = "No Results"
 
-    override fun getMovieInfoFromExternalData(body: String?, movieYear: String): TmdbMovie {
+    override fun getMovieInfoFromExternalData(body: String?, movieYear: String): TmdbMovieResponse {
         return jsonObjectToMovieInfoMapper(createJsonObject(body,movieYear))
     }
 
@@ -39,9 +37,9 @@ internal class TmdbResponseToTmdbMovieResolverImpl :
             year == movieYear
         } ?: false
 
-    private fun jsonObjectToMovieInfoMapper(jsonObject: JsonObject?): TmdbMovie =
+    private fun jsonObjectToMovieInfoMapper(jsonObject: JsonObject?): TmdbMovieResponse =
         jsonObject?.let {
-            val movieInfo = TmdbMovie()
+            val movieInfo = TmdbMovieResponse()
             val overviewJson = jsonObject["overview"]
             val backdropPathJson = jsonObject["backdrop_path"]
             val posterPath = getPath(jsonObject["poster_path"])
