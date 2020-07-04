@@ -1,6 +1,6 @@
 package ayds.dodo2.tmdb.external.tmdb
 
-import ayds.dodo2.tmdb.external.tmdb.entities.EmptyMovieInfo
+import ayds.dodo2.tmdb.external.tmdb.entities.EmptyTmdbMovieResponse
 import ayds.dodo2.tmdb.external.tmdb.entities.TmdbMovieResponse
 import com.google.gson.Gson
 import com.google.gson.JsonElement
@@ -51,7 +51,7 @@ internal class TmdbResponseToTmdbMovieResolverImpl :
             backdropPathJson?.let {
                 movieInfo.imageUrl = "https://image.tmdb.org/t/p/w400/${backdropPathJson.asString}" }
             movieInfo
-        } ?: EmptyMovieInfo
+        } ?: EmptyTmdbMovieResponse
 
     private fun getOverviewText(overviewJson: JsonElement?, posterPath: String) =
         overviewJson?.let { it.asString.replace("\\n", "\n") + posterPath.trimIndent()} ?: noResults

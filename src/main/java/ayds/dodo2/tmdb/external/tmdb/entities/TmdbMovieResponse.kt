@@ -7,4 +7,4 @@ open class TmdbMovieResponse {
     var source = "1"
 }
 
-object EmptyMovieInfo: TmdbMovieResponse()
+object EmptyTmdbMovieResponse: TmdbMovieResponse()
