@@ -1,4 +1,4 @@
-package ayds.dodo2.tmdb.external.tmdb
+package ayds.dodo2.tmdb.external.tmdb.entities
 
 open class TmdbMovieResponse {
     var title = ""

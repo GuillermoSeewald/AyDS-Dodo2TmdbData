@@ -1,5 +1,7 @@
 package ayds.dodo2.tmdb.external.tmdb
 
+import ayds.dodo2.tmdb.external.tmdb.entities.EmptyMovieInfo
+import ayds.dodo2.tmdb.external.tmdb.entities.TmdbMovieResponse
 import com.google.gson.Gson
 import com.google.gson.JsonElement
 import com.google.gson.JsonObject
