@@ -2,8 +2,6 @@ package ayds.dodo2.tmdb
 
 import ayds.dodo2.tmdb.entities.EmptyTmdbMovie
 import ayds.dodo2.tmdb.entities.TmdbMovie
-import ayds.dodo2.tmdb.entities.*
-import ayds.dodo2.tmdb.entities.TmdbMovieRequest
 import retrofit2.Response
 
 class TmdbServiceImp(
@@ -11,10 +9,10 @@ class TmdbServiceImp(
     private val tmdbMovieResolver: TmdbResponseToTmdbMovieResolver
 ) : ExternalService {
 
-    override fun getMovieInfo(movie: TmdbMovieRequest): TmdbMovie {
-        val callResponse = getTmdbMovieInfoFromService(movie.title)
+    override fun getMovieInfo(movieTitle:String,movieYear:String): TmdbMovie {
+        val callResponse = getTmdbMovieInfoFromService(movieTitle)
         return callResponse?.let{
-            tmdbMovieResolver.getMovieInfoFromExternalData(it.body(), movie.year)
+            tmdbMovieResolver.getMovieInfoFromExternalData(it.body(), movieYear)
         } ?: EmptyTmdbMovie
     }
 
