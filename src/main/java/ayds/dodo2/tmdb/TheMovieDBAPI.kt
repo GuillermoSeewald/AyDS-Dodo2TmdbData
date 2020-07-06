@@ -1,4 +1,4 @@
-package ayds.dodo2.tmdb.external
+package ayds.dodo2.tmdb
 
 import retrofit2.Call
 import retrofit2.http.GET

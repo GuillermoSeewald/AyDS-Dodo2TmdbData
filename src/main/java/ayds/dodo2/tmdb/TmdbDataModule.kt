@@ -1,4 +1,4 @@
-package ayds.dodo2.tmdb.external
+package ayds.dodo2.tmdb
 
 import retrofit2.Retrofit
 import retrofit2.converter.scalars.ScalarsConverterFactory
@@ -10,7 +10,9 @@ object TmdbDataModule{
             .build()
             .create(TheMovieDBAPI::class.java)
 
-    fun getService(): ExternalService = TmdbServiceImp(getTmdbAPI(),
-            TmdbResponseToTmdbMovieResolverImpl())
+    fun getService(): ExternalService = TmdbServiceImp(
+        getTmdbAPI(),
+        TmdbResponseToTmdbMovieResolverImpl()
+    )
 }
 

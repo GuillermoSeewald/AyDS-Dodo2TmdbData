@@ -1,6 +1,8 @@
-package ayds.dodo2.tmdb.external
+package ayds.dodo2.tmdb
 
-import ayds.dodo2.tmdb.external.entities.*
+import ayds.dodo2.tmdb.entities.EmptyTmdbMovie
+import ayds.dodo2.tmdb.entities.TmdbMovie
+import ayds.dodo2.tmdb.entities.*
 import com.google.gson.Gson
 import com.google.gson.JsonElement
 import com.google.gson.JsonObject
@@ -11,7 +13,7 @@ interface TmdbResponseToTmdbMovieResolver {
 }
 
 internal class TmdbResponseToTmdbMovieResolverImpl :
-        TmdbResponseToTmdbMovieResolver {
+    TmdbResponseToTmdbMovieResolver {
     private val noResults = "No Results"
 
     override fun getMovieInfoFromExternalData(body: String?, movieYear: String): TmdbMovie {

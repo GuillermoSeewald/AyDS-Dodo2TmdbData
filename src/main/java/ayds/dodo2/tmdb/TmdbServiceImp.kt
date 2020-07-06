@@ -1,12 +1,14 @@
-package ayds.dodo2.tmdb.external
+package ayds.dodo2.tmdb
 
-import ayds.dodo2.tmdb.external.entities.*
-import ayds.dodo2.tmdb.external.entities.TmdbMovieRequest
+import ayds.dodo2.tmdb.entities.EmptyTmdbMovie
+import ayds.dodo2.tmdb.entities.TmdbMovie
+import ayds.dodo2.tmdb.entities.*
+import ayds.dodo2.tmdb.entities.TmdbMovieRequest
 import retrofit2.Response
 
 class TmdbServiceImp(
-        private val tmdbAPI: TheMovieDBAPI,
-        private val tmdbMovieResolver: TmdbResponseToTmdbMovieResolver
+    private val tmdbAPI: TheMovieDBAPI,
+    private val tmdbMovieResolver: TmdbResponseToTmdbMovieResolver
 ) : ExternalService {
 
     override fun getMovieInfo(movie: TmdbMovieRequest): TmdbMovie {
