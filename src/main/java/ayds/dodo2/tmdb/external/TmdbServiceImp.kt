@@ -7,7 +7,7 @@ import retrofit2.Response
 class TmdbServiceImp(
         private val tmdbAPI: TheMovieDBAPI,
         private val tmdbMovieResolver: TmdbResponseToTmdbMovieResolver
-) : TmdbService {
+) : ExternalService {
 
     override fun getMovieInfo(movie: TmdbMovieRequest): TmdbMovie {
         val callResponse = getTmdbMovieInfoFromService(movie.title)
