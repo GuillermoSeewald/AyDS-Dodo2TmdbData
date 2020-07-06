@@ -5,11 +5,11 @@ Esta librería permite obtener información acerca de una determinada película 
 La comunicación con los servicios de esta librería se realizará mediante la interfaz denominada **ExternalService**, la cual cuenta con un servicio llamado *getMovieInfo*.
 
 ```
-fun getMovieInfo(title: String, year: String): TmdbMovie
+fun getMovieInfo(movieTitle: String, movieYear: String): TmdbMovie
 ```
  * Parámetro:
-   * title: String -> Título de la película buscada
-   * year: String -> Año de la película buscada
+   * movieTitle: String -> Título de la película buscada
+   * movieYear: String -> Año de la película buscada
 
  * Retorno:
    * TmdbMovie -> Encapsula la información buscada de la película solicitada. En caso de que que no se encuentre información relacionada a esa película u ocurra un error se obtendrá una EmptyTmdbMovie, la cual es la instancia por defecto de TmdbMovie.
