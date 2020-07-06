@@ -1,7 +1,5 @@
 package ayds.dodo2.tmdb
 
-import ayds.dodo2.tmdb.entities.EmptyTmdbMovie
-import ayds.dodo2.tmdb.entities.TmdbMovie
 import ayds.dodo2.tmdb.entities.*
 import com.google.gson.Gson
 import com.google.gson.JsonElement
@@ -14,7 +12,6 @@ interface TmdbResponseToTmdbMovieResolver {
 
 internal class TmdbResponseToTmdbMovieResolverImpl :
     TmdbResponseToTmdbMovieResolver {
-    private val noResults = "No Results"
 
     override fun getMovieInfoFromExternalData(body: String?, movieYear: String): TmdbMovie {
         return jsonObjectToMovieInfoMapper(createJsonObject(body,movieYear))
@@ -48,14 +45,14 @@ internal class TmdbResponseToTmdbMovieResolverImpl :
 
             movieInfo.title = jsonObject["title"].asString
             movieInfo.plot = getOverviewText(overviewJson)
-            movieInfo.posterPath = getPath(jsonObject["poster_path"])
+            movieInfo.posterUrl = getPath(jsonObject["poster_path"])
             backdropPathJson?.let {
                 movieInfo.imageUrl = "https://image.tmdb.org/t/p/w400/${backdropPathJson.asString}" }
             movieInfo
         } ?: EmptyTmdbMovie
 
     private fun getOverviewText(overviewJson: JsonElement?) =
-        overviewJson?.asString?.replace("\\n", "\n")?.trimIndent() ?: noResults
+        overviewJson?.asString?.replace("\\n", "\n")?.trimIndent() ?: ""
 
     private fun getPath(posterPath: JsonElement?): String =
         posterPath?.let { "https://image.tmdb.org/t/p/w400/${posterPath.asString}" } ?: ""
