@@ -53,8 +53,8 @@ internal class TmdbResponseToTmdbMovieResolverImpl :
         } ?: EmptyTmdbMovie
 
     private fun getOverviewText(overviewJson: JsonElement?) =
-        overviewJson?.let { it.asString.replace("\\n", "\n").trimIndent()} ?: noResults
+        overviewJson?.asString?.replace("\\n", "\n")?.trimIndent() ?: noResults
 
     private fun getPath(posterPath: JsonElement?): String =
-        posterPath?.let { "<a href=https://image.tmdb.org/t/p/w400/${posterPath.asString}>View Movie Poster</a>" } ?: ""
+        posterPath?.let { "https://image.tmdb.org/t/p/w400/${posterPath.asString}" } ?: ""
 }
