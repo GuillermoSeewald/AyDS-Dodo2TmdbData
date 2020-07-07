@@ -10,7 +10,7 @@ object TmdbDataModule{
             .build()
             .create(TheMovieDBAPI::class.java)
 
-    fun getService(): ExternalService = TmdbServiceImp(
+    fun getService(): TmdbService = TmdbServiceImp(
         getTmdbAPI(),
         TmdbResponseToTmdbMovieResolverImpl()
     )
