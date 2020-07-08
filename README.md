@@ -26,5 +26,4 @@ Un elemento de tipo TmdbMovie contiene la información acerca de una película d
 * *title* (título de la película)
 * *plot* (descipción de la trama)
 * *imageUrl* (dirección url de la imagen de la película)
-* *source* (nombre de la fuente de información)
 * *posterUrl* (dirección url del poster de la película)
