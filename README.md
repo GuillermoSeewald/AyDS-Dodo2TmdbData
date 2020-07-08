@@ -2,7 +2,7 @@
 Esta librería permite obtener información acerca de una determinada película según su título y año mediante el uso de la api TMDB.
 
 ### Utilización de la librería
-La comunicación con los servicios de esta librería se realizará mediante la interfaz denominada **ExternalService**, la cual cuenta con un servicio llamado *getMovieInfo*.
+La comunicación con los servicios de esta librería se realizará mediante la interfaz denominada **TmdbService**, la cual cuenta con un servicio llamado *getMovieInfo*.
 
 ```
 fun getMovieInfo(movieTitle: String, movieYear: String): TmdbMovie
@@ -17,7 +17,7 @@ fun getMovieInfo(movieTitle: String, movieYear: String): TmdbMovie
 Para la utilización de este servicio se provee una implementación de dicha interface la cual se obtiene invocando al servicio *getService* ubicado en el módulo **TmdbDataModule**
 
 ```
-fun getService(): ExternalService
+fun getService(): TmdbService
 ```
 
 ### Entidades
